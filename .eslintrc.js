@@ -26,6 +26,7 @@ module.exports = {
     "eol-last": ["error", "always"],
     "object-curly-spacing": ["error", "always"],
     "prefer-template": ["error"],
+    "space-before-function-paren": ["error", "never"],
     semi: ["error", "always"],
     eqeqeq: ["error", "smart"],
     quotes: [2, "double", { avoidEscape: true }],
