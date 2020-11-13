@@ -3,10 +3,10 @@
     <input
       :id="id"
       type="checkbox"
-      :checked="toggledOn"
+      :checked="internalToggledProp"
       :name="id"
       class="toggle-checkbox"
-      @click="toggledOn = !toggledOn"
+      @click="handleToggle()"
     />
     <label :for="id" class="toggle-label" />
   </div>
@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      toggledOn: this.toggledProp,
+      internalToggledProp: this.externalToggledProp,
     };
   },
   props: {
@@ -24,9 +24,15 @@ export default {
       type: String,
       required: true,
     },
-    toggledProp: {
+    externalToggledProp: {
       type: Boolean,
-      required: true,
+      default: true,
+    },
+  },
+  methods: {
+    handleToggle() {
+      this.internalToggledProp = !this.internalToggledProp;
+      this.$emit("input-toggled", this.internalToggledProp);
     },
   },
 };
