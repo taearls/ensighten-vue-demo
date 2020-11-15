@@ -14,8 +14,8 @@
       <h2 class="text-lg font-bold">v-show</h2>
       <input-toggle id="vShowInputToggle" :external-toggled-prop="vShowToggleProp" @input-toggled="vShowToggleProp = $event" />
       <pre>vShowToggleProp: {{ vShowToggleProp }}</pre>
-      <p v-if="vShowToggleProp">Now I have display block.</p>
-      <p v-else>Now I'm shown, and the other element has display none.</p>
+      <p v-show="vShowToggleProp">Now I have display block.</p>
+      <p v-show="!vShowToggleProp">Now I'm shown, and the original element has display none.</p>
     </div>
 
     <div class="my-4">
@@ -35,8 +35,8 @@
     <div class="my-4">
       <h2 class="text-lg font-bold">v-model</h2>
       <pre>foodToAdd: "{{ foodToAdd }}"</pre>
-      <input class="block mx-auto focus:shadow-outline focus:outline-none border border-gray-800 rounded-md" type="text" placeholder="Add a Food to the list!" v-model.trim="foodToAdd">
-      <button class="add-food-button" @click="foodList.push(foodToAdd)" :disabled="foodToAdd === ''">Add Food to List</button>
+      <input class="block mx-auto my-2 p-2 focus:shadow-outline focus:outline-none border border-gray-800 rounded-md" type="text" placeholder="Add a Food to the list!" v-model.trim="foodToAdd">
+      <button class="add-food-button text-black bg-gray-300 px-4 py-2 rounded-md" @click="foodList.push(foodToAdd)" :disabled="foodToAdd === ''">Add Food to List</button>
     </div>
   </div>
 </template>
