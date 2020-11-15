@@ -35,13 +35,13 @@
         <div
           v-for="(food, index) in foodList"
           :key="'food-container-' + index"
-          class="flex justify-center"
+          class="flex justify-center items-center my-2"
         >
           <li :key="'food-' + index">
             {{ food }}
           </li>
           <button
-            class="ml-2"
+            class="button mx-2"
             :key="'remove-food-' + index"
             @click="foodList.splice(index, 1)"
           >
@@ -61,7 +61,7 @@
         v-model.trim="foodToAdd"
       />
       <button
-        class="add-food-button text-black bg-gray-300 px-4 py-2 rounded-md"
+        class="button add-food-button"
         @click="foodList.push(foodToAdd)"
         :disabled="foodToAdd === ''"
       >
@@ -95,5 +95,8 @@ export default {
 .add-food-button:disabled {
   cursor: not-allowed;
   opacity: 0.75;
+}
+.button {
+  @apply text-black bg-gray-300 px-4 py-2 rounded-md;
 }
 </style>
