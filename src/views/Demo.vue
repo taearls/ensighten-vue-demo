@@ -94,6 +94,6 @@ export default {
 <style scoped>
 .add-food-button:disabled {
   cursor: not-allowed;
-  opacity: 75%;
+  opacity: 0.75;
 }
 </style>
