@@ -64,7 +64,7 @@
       <pre>addFoodButtonDisabled: {{ addFoodButtonDisabled }}</pre>
       <button
         class="button add-food-button"
-        @click="foodList.push(foodToAdd)"
+        @click="addFood(foodToAdd)"
         :disabled="addFoodButtonDisabled"
       >
         Add Food to List
@@ -93,6 +93,13 @@ export default {
   computed: {
     addFoodButtonDisabled() {
       return this.foodToAdd === "";
+    },
+  },
+  methods: {
+    addFood(foodToAdd) {
+      this.foodList.push(foodToAdd);
+      // reset input after use
+      this.foodToAdd = "";
     },
   },
 };
