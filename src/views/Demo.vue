@@ -104,9 +104,9 @@
       validated against.
     </p>
     <p>Once all the validations pass, the submit button will be enabled.</p>
-    <pre>formBody: {{ formBody }}</pre>
+    <pre>submittedFormBody: {{ submittedFormBody }}</pre>
     <!-- receives payload as $event keyword from custom form-submitted event -->
-    <demo-form @form-submitted="formBody = $event"/>
+    <demo-form @form-submitted="submittedFormBody = $event"/>
   </div>
 </template>
 
@@ -123,7 +123,7 @@ export default {
       vShowToggleProp: true,
       foodList,
       foodToAdd: "",
-      formBody: {},
+      submittedFormBody: {},
     };
   },
   components: {
