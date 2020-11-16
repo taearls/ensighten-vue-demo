@@ -111,7 +111,7 @@ pre {
 }
 .add-food-button:disabled {
   cursor: not-allowed;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 .button {
   @apply text-black bg-gray-300 px-4 py-2 rounded-md;
