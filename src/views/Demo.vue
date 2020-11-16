@@ -99,6 +99,9 @@ export default {
 </script>
 
 <style scoped>
+pre {
+  @apply whitespace-normal;
+}
 .add-food-button:disabled {
   cursor: not-allowed;
   opacity: 0.75;
