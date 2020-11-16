@@ -1,6 +1,7 @@
 {
   "name": "ensighten-vue-demo",
   "version": "0.1.0",
+  "author": "Tyler Earls",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
