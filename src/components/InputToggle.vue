@@ -6,7 +6,7 @@
       :checked="internalToggledProp"
       :name="id"
       class="toggle-checkbox"
-      @click="handleToggle()"
+      @click="handleToggle"
     />
     <label :for="id" class="toggle-label" />
   </div>

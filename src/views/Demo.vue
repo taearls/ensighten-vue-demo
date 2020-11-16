@@ -60,10 +60,12 @@
         placeholder="Add a Food to the list!"
         v-model.trim="foodToAdd"
       />
+      <h3>Computed Property to determine if this button should be disabled or not. Once something is added to the <pre class="inline">foodToAdd</pre> property in the input above, this button will be enabled.</h3>
+      <pre>addFoodButtonDisabled: {{ addFoodButtonDisabled }}</pre>
       <button
         class="button add-food-button"
         @click="foodList.push(foodToAdd)"
-        :disabled="foodToAdd === ''"
+        :disabled="addFoodButtonDisabled"
       >
         Add Food to List
       </button>
@@ -87,6 +89,11 @@ export default {
   },
   components: {
     InputToggle,
+  },
+  computed: {
+    addFoodButtonDisabled() {
+      return this.foodToAdd === "";
+    },
   },
 };
 </script>
