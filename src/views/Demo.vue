@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-8">
     <h1>This is a demo page</h1>
 
     <div class="my-4">
