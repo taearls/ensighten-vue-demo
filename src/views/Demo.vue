@@ -3,7 +3,7 @@
     <!-- VUE DIRECTIVES -->
     <h2 class="font-bold text-xl text-purple-600">Vue Directives</h2>
     <div class="my-4">
-      <h2 class="text-lg font-bold">v-if</h2>
+      <h3 class="font-bold text-lg text-purple-600">v-if</h3>
       <!-- receives payload as $event keyword from custom input-toggled event -->
       <input-toggle
         id="vIfInputToggle"
@@ -16,7 +16,7 @@
     </div>
 
     <div class="my-4">
-      <h2 class="text-lg font-bold">v-show</h2>
+      <h3 class="font-bold text-lg text-purple-600">v-show</h3>
       <input-toggle
         id="vShowInputToggle"
         :external-toggled-prop="vShowToggleProp"
@@ -30,7 +30,7 @@
     </div>
 
     <div class="my-4">
-      <h2 class="text-lg font-bold">v-for</h2>
+      <h3 class="font-bold text-lg text-purple-600">v-for</h3>
       <pre>foodList: {{ foodList }}</pre>
       <ul>
         <div
@@ -53,7 +53,7 @@
     </div>
 
     <div class="my-4">
-      <h2 class="text-lg font-bold">v-model</h2>
+      <h3 class="font-bold text-lg text-purple-600">v-model</h3>
       <pre>foodToAdd: "{{ foodToAdd }}"</pre>
       <input
         class="block mx-auto my-2 p-2 focus:shadow-outline focus:outline-none border border-gray-800 rounded-md"
@@ -86,6 +86,47 @@
       <img class="block mx-auto" :src="require(`@/assets/${imgSrc}`)" alt="nacho libre" />
     </template>
 
+    <hr class="mx-auto my-8 w-2/3" />
+
+    <h2 class="font-bold text-xl text-purple-600">Lifecycle Demo</h2>
+    <life-cycle-demo
+      v-if="isLifecycleComponentPresent"
+      :is-updated="isLifecycleComponentUpdated"
+      @on-before-created="lifecycleListeners.onBeforeCreated = true"
+      @on-created="lifecycleListeners.onCreated = true"
+      @on-before-mounted="lifecycleListeners.onBeforeMounted = true"
+      @on-mounted="lifecycleListeners.onMounted = true"
+      @on-before-updated="lifecycleListeners.onBeforeUpdated = true"
+      @on-updated="lifecycleListeners.onUpdated = true"
+      @on-before-destroyed="lifecycleListeners.onBeforeDestroyed = true"
+      @on-destroyed="lifecycleListeners.onDestroyed = true"
+    />
+
+    <pre>onBeforeCreated: {{ lifecycleListeners.onBeforeCreated }}</pre>
+    <pre>onCreated: {{ lifecycleListeners.onCreated }}</pre>
+    <pre>onBeforeMounted: {{ lifecycleListeners.onBeforeMounted }}</pre>
+    <pre>onMounted: {{ lifecycleListeners.onMounted }}</pre>
+    <pre>onBeforeUpdated: {{ lifecycleListeners.onBeforeUpdated }}</pre>
+    <pre>onUpdated: {{ lifecycleListeners.onUpdated }}</pre>
+    <pre>onBeforeDestroyed: {{ lifecycleListeners.onBeforeDestroyed }}</pre>
+    <pre>onDestroyed: {{ lifecycleListeners.onDestroyed }}</pre>
+
+    <button class="button block mx-auto my-2" @click="isLifecycleComponentPresent = !isLifecycleComponentPresent">
+      {{ isLifecycleComponentPresent ? "Hide Lifecycle Demo Component" : "Show Lifecycle Demo Component" }}
+    </button>
+
+    <!-- you can conditionally show a group of elements without adding additional html to the page by using a template tag -->
+    <template v-if="isLifecycleComponentPresent">
+      <button class="button block mx-auto my-2" @click="isLifecycleComponentUpdated = true">
+        Update Lifecycle Demo Component
+      </button>
+      <button class="button block mx-auto my-2" @click="resetLifecycleComponent">
+        Reset Lifecycle Demo Component
+      </button>
+    </template>
+
+    <hr class="mx-auto my-8 w-2/3" />
+
     <!-- DEMO FORM -->
     <h2 class="font-bold text-xl text-purple-600">Demo Form</h2>
     <p>
@@ -116,12 +157,14 @@
     <pre>submittedFormBody: {{ submittedFormBody }}</pre>
     <!-- receives payload as $event keyword from custom form-submitted event -->
     <demo-form @form-submitted="submittedFormBody = $event"/>
+
   </div>
 </template>
 
 <script>
 import InputToggle from "@/components/InputToggle";
 import DemoForm from "@/components/DemoForm";
+import LifeCycleDemo from "@/components/LifeCycleDemo";
 
 const foodList = ["🌮", "🍕", "🌭"];
 
@@ -134,11 +177,24 @@ export default {
       foodToAdd: "",
       submittedFormBody: {},
       imgSrc: "",
+      isLifecycleComponentPresent: true,
+      isLifecycleComponentUpdated: false,
+      lifecycleListeners: {
+        onBeforeCreated: false,
+        onCreated: false,
+        onBeforeMounted: false,
+        onMounted: false,
+        onBeforeUpdated: false,
+        onUpdated: false,
+        onBeforeDestroyed: false,
+        onDestroyed: false,
+      },
     };
   },
   components: {
     InputToggle,
     DemoForm,
+    LifeCycleDemo,
   },
   computed: {
     addFoodButtonDisabled() {
@@ -166,7 +222,21 @@ export default {
       // we have to replace the array rather than mutate so we can watch it
       // if we mutate the array, the oldValue and the newValue will be the same
       this.foodList = [...this.foodList, foodToAdd];
+
+      // clear input after use
       this.foodToAdd = "";
+    },
+    resetLifecycleComponent() {
+      this.isLifecycleComponentPresent = true;
+      this.isLifecycleComponentUpdated = false;
+      for (const lifecycleProp in this.lifecycleListeners) {
+        // $nextTick makes sure the callback it wraps is called at the end of the hydration cycle
+        // this helps here so that the onBeforeUpdated and onUpdated properties get set to false
+        // otherwise, the component technically updates, so it may not show as true otherwise
+        this.$nextTick(() => {
+          this.lifecycleListeners[lifecycleProp] = false;
+        });
+      }
     },
   },
 };
