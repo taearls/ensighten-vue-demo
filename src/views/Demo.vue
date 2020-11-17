@@ -61,8 +61,9 @@
         placeholder="Add a Food to the list!"
         v-model.trim="foodToAdd"
       />
+      <!-- COMPUTED EXAMPLE -->
       <h3>
-        Computed Property to determine if this button should be disabled or not.
+        A computed property determines if this button should be disabled or not.
         Once something is added to the
         <pre class="inline">foodToAdd</pre>
         property in the input above, this button will be enabled.
@@ -76,6 +77,14 @@
         Add Food to List
       </button>
     </div>
+
+    <!-- WATCH EXAMPLE -->
+    <p>If you add <pre class="inline">nachos</pre> to the <pre class="inline">foodList</pre>, a watcher will pick up on this and trigger a side effect.</p>
+
+    <template v-if="imgSrc !== ''">
+      <p class="font-bold uppercase">nachoooooo!</p>
+      <img class="block mx-auto" :src="require(`@/assets/${imgSrc}`)" alt="nacho libre" />
+    </template>
 
     <!-- DEMO FORM -->
     <h2 class="font-bold text-xl text-purple-600">Demo Form</h2>
@@ -124,6 +133,7 @@ export default {
       foodList,
       foodToAdd: "",
       submittedFormBody: {},
+      imgSrc: "",
     };
   },
   components: {
@@ -135,10 +145,27 @@ export default {
       return this.foodToAdd === "";
     },
   },
+  watch: {
+    foodList: {
+      handler: function(val, oldVal) {
+        let nachoIsIncluded = false;
+        for (let i = 0; i < val.length; i++) {
+          const item = val[i];
+          if (item.includes("nacho")) {
+            nachoIsIncluded = true;
+            break;
+          }
+        }
+        this.imgSrc = nachoIsIncluded ? "nacho-libre.jpg" : "";
+      },
+      deep: true,
+    },
+  },
   methods: {
     addFood(foodToAdd) {
-      this.foodList.push(foodToAdd);
-      // clear input after use
+      // we have to replace the array rather than mutate so we can watch it
+      // if we mutate the array, the oldValue and the newValue will be the same
+      this.foodList = [...this.foodList, foodToAdd];
       this.foodToAdd = "";
     },
   },
