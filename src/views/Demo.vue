@@ -1,9 +1,18 @@
 <template>
   <div class="px-8">
+
+    <h1 class="font-bold text-2xl text-purple-600">Vue 2 Demo Page</h1>
+
+    <!-- OVERVIEW -->
+    <h2 class="font-bold text-xl text-purple-600 my-4">Overview</h2>
+    <p>This page is designed as much as possible to be a one stop shop to highlight features of Vue 2. Relevant data properties are printed directly in the browser with semantic names to make this demo as visual as possible.</p>
+
+    <hr class="mx-auto my-8 w-2/3" />
+
     <!-- VUE DIRECTIVES -->
     <h2 class="font-bold text-xl text-purple-600">Vue Directives</h2>
     <div class="my-4">
-      <h3 class="font-bold text-lg text-purple-600">v-if</h3>
+      <h3 class="font-bold text-lg text-purple-600 my-4">v-if</h3>
       <!-- receives payload as $event keyword from custom input-toggled event -->
       <input-toggle
         id="vIfInputToggle"
@@ -16,7 +25,7 @@
     </div>
 
     <div class="my-4">
-      <h3 class="font-bold text-lg text-purple-600">v-show</h3>
+      <h3 class="font-bold text-lg text-purple-600 my-4">v-show</h3>
       <input-toggle
         id="vShowInputToggle"
         :external-toggled-prop="vShowToggleProp"
@@ -30,7 +39,7 @@
     </div>
 
     <div class="my-4">
-      <h3 class="font-bold text-lg text-purple-600">v-for</h3>
+      <h3 class="font-bold text-lg text-purple-600 my-4">v-for</h3>
       <pre>foodList: {{ foodList }}</pre>
       <ul>
         <div
@@ -53,7 +62,7 @@
     </div>
 
     <div class="my-4">
-      <h3 class="font-bold text-lg text-purple-600">v-model</h3>
+      <h3 class="font-bold text-lg text-purple-600 my-4">v-model</h3>
       <pre>foodToAdd: "{{ foodToAdd }}"</pre>
       <input
         class="block mx-auto my-2 p-2 focus:shadow-outline focus:outline-none border border-gray-800 rounded-md"
@@ -80,6 +89,7 @@
 
     <!-- WATCH EXAMPLE -->
     <p>If you add <pre class="inline">nachos</pre> to the <pre class="inline">foodList</pre>, a watcher will pick up on this and trigger a side effect.</p>
+    <p><strong>NOTE:</strong> This example grabs an image that's committed in the demo projected. A less contrived use case for this might trigger an API call to request a payload in response to a user event.</p>
 
     <template v-if="imgSrc !== ''">
       <p class="font-bold uppercase">nachoooooo!</p>
@@ -88,8 +98,8 @@
 
     <hr class="mx-auto my-8 w-2/3" />
 
-    <h2 class="font-bold text-xl text-purple-600">Lifecycle Demo</h2>
-    <life-cycle-demo
+    <h2 class="font-bold text-xl text-purple-600 my-4">Lifecycle Demo</h2>
+    <lifecycle-demo
       v-if="isLifecycleComponentPresent"
       :is-updated="isLifecycleComponentUpdated"
       @on-before-created="lifecycleListeners.onBeforeCreated = true"
@@ -128,9 +138,9 @@
     <hr class="mx-auto my-8 w-2/3" />
 
     <!-- DEMO FORM -->
-    <h2 class="font-bold text-xl text-purple-600">Demo Form</h2>
-    <p>
-      This is a demo form I stole from my personal website that implements a more advanced set of validation
+    <h2 class="font-bold text-xl text-purple-600 my-4">Demo Form</h2>
+    <p class="p-2">
+      This is a demo form I stole from my <a class="text-blue-500 underline" href="https://www.tylerearls.com/contact" target="_blank" rel="noreferrer">personal website</a> that implements a more advanced set of validation
       functions using
       <a
         class="text-blue-500 underline"
@@ -141,20 +151,20 @@
       >, a Vue library that has advanced validation functions that's incredibly
       useful.
     </p>
-    <p>
+    <p class="p-2">
       Required fields are notated with a
       <span class="font-black text-purple-600">*</span>.
     </p>
-    <p>
+    <p class="p-2">
       When a blur event fires on those inputs, if there is no text in that
       field, an error message will appear.
     </p>
-    <p>
+    <p class="p-2">
       For the email field, there is also a regular expression that it is
       validated against.
     </p>
-    <p>Once all the validations pass, the submit button will be enabled.</p>
-    <pre>submittedFormBody: {{ submittedFormBody }}</pre>
+    <p class="p-2">Once all the validations pass, the submit button will be enabled.</p>
+    <pre class="p-2">submittedFormBody: {{ submittedFormBody }}</pre>
     <!-- receives payload as $event keyword from custom form-submitted event -->
     <demo-form @form-submitted="submittedFormBody = $event"/>
 
@@ -164,16 +174,14 @@
 <script>
 import InputToggle from "@/components/InputToggle";
 import DemoForm from "@/components/DemoForm";
-import LifeCycleDemo from "@/components/LifeCycleDemo";
-
-const foodList = ["🌮", "🍕", "🌭"];
+import LifecycleDemo from "@/components/LifecycleDemo";
 
 export default {
   data() {
     return {
       vIfToggleProp: true,
       vShowToggleProp: true,
-      foodList,
+      foodList: ["🌮", "🍕", "🌭"],
       foodToAdd: "",
       submittedFormBody: {},
       imgSrc: "",
@@ -194,7 +202,7 @@ export default {
   components: {
     InputToggle,
     DemoForm,
-    LifeCycleDemo,
+    LifecycleDemo,
   },
   computed: {
     addFoodButtonDisabled() {
@@ -203,16 +211,17 @@ export default {
   },
   watch: {
     foodList: {
-      handler: function(val, oldVal) {
-        let nachoIsIncluded = false;
-        for (let i = 0; i < val.length; i++) {
-          const item = val[i];
-          if (item.includes("nacho")) {
-            nachoIsIncluded = true;
+      // if I needed to compare the new value to the previous value, I can use the 2nd argument of the watch fn to access the old value
+      handler: function(newValue, oldValue) {
+        let isNachosIncluded = false;
+        for (let i = 0; i < newValue.length; i++) {
+          const item = newValue[i];
+          if (item.toLowerCase() === "nachos") {
+            isNachosIncluded = true;
             break;
           }
         }
-        this.imgSrc = nachoIsIncluded ? "nacho-libre.jpg" : "";
+        this.imgSrc = isNachosIncluded ? "nacho-libre.jpg" : "";
       },
       deep: true,
     },

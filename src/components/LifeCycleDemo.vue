@@ -27,7 +27,6 @@ export default {
     this.$emit("on-mounted");
   },
   beforeUpdate() {
-    console.log("updated");
     this.$emit("on-before-updated");
   },
   updated() {
