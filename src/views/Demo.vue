@@ -1,5 +1,5 @@
 <template>
-  <div class="px-8">
+  <div class="px-16">
 
     <h1 class="font-bold text-2xl text-purple-600">Vue 2 Demo Page</h1>
 
@@ -71,12 +71,12 @@
         v-model.trim="foodToAdd"
       />
       <!-- COMPUTED EXAMPLE -->
-      <h3>
+      <p class="my-2">
         A computed property determines if this button should be disabled or not.
         Once something is added to the
         <pre class="inline">foodToAdd</pre>
         property in the input above, this button will be enabled.
-      </h3>
+      </p>
       <pre>addFoodButtonDisabled: {{ addFoodButtonDisabled }}</pre>
       <button
         class="button add-food-button"
@@ -88,8 +88,8 @@
     </div>
 
     <!-- WATCH EXAMPLE -->
-    <p>If you add <pre class="inline">nachos</pre> to the <pre class="inline">foodList</pre>, a watcher will pick up on this and trigger a side effect.</p>
-    <p><strong>NOTE:</strong> This example grabs an image that's committed in the demo projected. A less contrived use case for this might trigger an API call to request a payload in response to a user event.</p>
+    <p class="my-2">If you add <pre class="inline">nachos</pre> to the <pre class="inline">foodList</pre>, a watcher will pick up on this and trigger a side effect.</p>
+    <p class="my-2"><strong>NOTE:</strong> This example grabs an image that's committed in the demo projected. A less contrived use case for this might trigger an API call to request a payload in response to a user event.</p>
 
     <template v-if="imgSrc !== ''">
       <p class="font-bold uppercase">nachoooooo!</p>
