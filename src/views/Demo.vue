@@ -96,6 +96,28 @@
       <img class="block mx-auto" :src="require(`@/assets/${imgSrc}`)" alt="nacho libre" />
     </template>
 
+    <div class="flex flex-col my-4">
+      <pre> selectedRadioInput: {{ selectedRadioInput || '""' }}</pre>
+
+      <!-- you can also use v-for with a number range. it starts from 1 and includes the upper bound -->
+      <label v-for="num in 4" :for="`radioOption${num}`" :key="`radioLabel${num}`">
+        <input :id="`radioOption${num}`" type="radio" name="radio-demo" :value="`Option ${num}`" v-model="selectedRadioInput" /> Option {{ num }}
+      </label>
+    </div>
+
+    <div class="flex flex-col my-4">
+      <pre> selectedDropdownInput: {{ selectedDropdownInput || '""' }}</pre>
+      <select
+        class="w-40 mx-auto my-2 px-2 py-1 border border-black rounded-md"
+        v-model="selectedDropdownInput"
+      >
+        <option disabled value="">Please Select One</option>
+        <option v-for="num in 4" :key="`dropdownLabel${num}`">
+          Option {{ num }}
+        </option>
+      </select>
+    </div>
+
     <hr class="mx-auto my-8 w-2/3" />
 
     <h2 class="font-bold text-xl text-purple-600 my-4">Lifecycle Demo</h2>
@@ -183,6 +205,8 @@ export default {
       vShowToggleProp: true,
       foodList: ["🌮", "🍕", "🌭"],
       foodToAdd: "",
+      selectedRadioInput: "",
+      selectedDropdownInput: "",
       submittedFormBody: {},
       imgSrc: "",
       isLifecycleComponentPresent: true,
