@@ -201,7 +201,7 @@
 
     <pre>&lt;template&gt;</pre>
     <pre>&lt;button&gt;</pre>
-    <pre>&lt;slot&gt;Submit&lt;/slot&gt;</pre>
+    <pre v-text="slotCodeSnippet"></pre>
     <pre>&lt;/button&gt;</pre>
     <pre>&lt;/template&gt;</pre>
 
@@ -210,6 +210,25 @@
     <p class="p-2">A good real-world use case for slots is for a blog, where you may have multiple slots (differentiated in each slot with a <pre class="inline">name</pre> attribute) for a header, a title, a footer, a thumbnail.</p>
     <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none"></submit-button>
     <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none">Save Changes</submit-button>
+
+    <!-- SCOPED SLOT EXAMPLE SECTION -->
+    <h2 class="font-bold text-xl text-purple-600 my-4">Scoped Slot Demo</h2>
+    <p class="p-2">This demo is also pretty simple. Here's the demo scoped slot component code:</p>
+    <pre>&lt;div&gt;</pre>
+      <pre v-text="scopedSlotCodeSnippet"></pre>
+    <pre>&lt;/div&gt;</pre>
+
+    <p class="p-2">Scoped slots are similar to regular slots. The difference is that a scoped slot has access to data in a child component from the parent.</p>
+
+    <p class="p-2">In the first example, I'm rendering the default content, which renders the value a <pre class="inline">user.firstName</pre> property that's defined in the child component.</p>
+
+    <scoped-slot-demo />
+
+    <p class="p-2">In the second example, I'm rendering different content by accessing the child component's <pre class="inline">user.lastName</pre> property from the parent component.</p>
+
+    <scoped-slot-demo v-slot:default="{ user }">
+      I can access {{ user.lastName }} from the parent.
+    </scoped-slot-demo>
   </div>
 </template>
 
@@ -219,6 +238,7 @@ import InputToggle from "@/components/InputToggle";
 import DemoForm from "@/components/DemoForm";
 import LifecycleDemo from "@/components/LifecycleDemo";
 import SubmitButton from "@/components/SubmitButton";
+import ScopedSlotDemo from "@/components/ScopedSlotDemo";
 
 export default {
   data() {
@@ -243,6 +263,8 @@ export default {
         onBeforeDestroyed: false,
         onDestroyed: false,
       },
+      slotCodeSnippet: "<slot>Submit</slot>",
+      scopedSlotCodeSnippet: "<slot :user=\"user\">{{user.firstName}}</slot>",
     };
   },
   components: {
@@ -250,6 +272,7 @@ export default {
     DemoForm,
     LifecycleDemo,
     SubmitButton,
+    ScopedSlotDemo,
   },
   computed: {
     addFoodButtonDisabled() {
