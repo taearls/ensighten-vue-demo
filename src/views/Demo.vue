@@ -108,7 +108,7 @@
     <div class="flex flex-col my-4">
       <pre> selectedDropdownInput: {{ selectedDropdownInput || '""' }}</pre>
       <select
-        class="w-40 mx-auto my-2 px-2 py-1 border border-black rounded-md"
+        class="w-48 mx-auto my-2 px-2 py-1 border border-black rounded-md"
         v-model="selectedDropdownInput"
       >
         <option disabled value="">Please Select One</option>
