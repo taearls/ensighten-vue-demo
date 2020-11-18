@@ -20,8 +20,10 @@
         @input-toggled="vIfToggleProp = $event"
       />
       <pre>vIfToggleProp: {{ vIfToggleProp }}</pre>
-      <p v-if="vIfToggleProp">Now you see me</p>
-      <p v-else>Now I'm here instead</p>
+      <transition-group name="toggleFade">
+        <p v-if="vIfToggleProp" key="vIfTogglePropTrue">Now you see me</p>
+        <p v-else key="vIfTogglePropFalse">Now I'm here instead</p>
+      </transition-group>
     </div>
 
     <div class="my-4">
@@ -32,10 +34,12 @@
         @input-toggled="vShowToggleProp = $event"
       />
       <pre>vShowToggleProp: {{ vShowToggleProp }}</pre>
-      <p v-show="vShowToggleProp">Now I have display block.</p>
-      <p v-show="!vShowToggleProp">
-        Now I'm shown, and the original element has display none.
-      </p>
+      <transition-group name="toggleFade">
+        <p v-show="vShowToggleProp" key="vShowTogglePropTrue">Now I have display block.</p>
+        <p v-show="!vShowToggleProp" key="vShowTogglePropFalse">
+          Now I'm shown, and the original element has display none.
+        </p>
+      </transition-group>
     </div>
 
     <div class="my-4">
@@ -285,5 +289,19 @@ pre {
 }
 .button {
   @apply text-black bg-gray-300 px-4 py-2 rounded-md;
+}
+
+/* TRANSITIONS */
+.toggleFade-enter-active {
+  display: block;
+  transition: opacity 0.2s ease-in;
+}
+.toggleFade-leave-active {
+  display: none;
+  transition: opacity 0.2s ease-out;
+}
+.toggleFade-enter,
+.toggleFade-leave-to {
+  opacity: 0;
 }
 </style>
