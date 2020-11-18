@@ -1,5 +1,7 @@
 <template>
-  <div class="toggle-container transition duration-800 ease-in focus:shadow-outline-light focus:outline-none">
+  <div
+    class="toggle-container transition duration-800 ease-in focus:shadow-outline-light focus:outline-none"
+  >
     <input
       :id="id"
       type="checkbox"

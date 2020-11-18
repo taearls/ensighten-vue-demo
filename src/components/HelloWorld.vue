@@ -4,7 +4,11 @@
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
-      <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://cli.vuejs.org" target="_blank" rel="noopener"
+      <a
+        class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+        href="https://cli.vuejs.org"
+        target="_blank"
+        rel="noopener"
         >vue-cli documentation</a
       >.
     </p>
@@ -32,36 +36,70 @@
     <h3>Essential Links</h3>
     <ul>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://vuejs.org"
+          target="_blank"
+          rel="noopener"
+          >Core Docs</a
+        >
       </li>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://forum.vuejs.org" target="_blank" rel="noopener"
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://forum.vuejs.org"
+          target="_blank"
+          rel="noopener"
           >Forum</a
         >
       </li>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://chat.vuejs.org" target="_blank" rel="noopener"
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://chat.vuejs.org"
+          target="_blank"
+          rel="noopener"
           >Community Chat</a
         >
       </li>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://twitter.com/vuejs" target="_blank" rel="noopener"
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://twitter.com/vuejs"
+          target="_blank"
+          rel="noopener"
           >Twitter</a
         >
       </li>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://news.vuejs.org"
+          target="_blank"
+          rel="noopener"
+          >News</a
+        >
       </li>
     </ul>
     <h3>Ecosystem</h3>
     <ul>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://router.vuejs.org" target="_blank" rel="noopener"
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://router.vuejs.org"
+          target="_blank"
+          rel="noopener"
           >vue-router</a
         >
       </li>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://vuex.vuejs.org"
+          target="_blank"
+          rel="noopener"
+          >vuex</a
+        >
       </li>
       <li>
         <a
@@ -73,7 +111,11 @@
         >
       </li>
       <li>
-        <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
+        <a
+          class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
+          href="https://vue-loader.vuejs.org"
+          target="_blank"
+          rel="noopener"
           >vue-loader</a
         >
       </li>

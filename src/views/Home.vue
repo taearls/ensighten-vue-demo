@@ -8,7 +8,8 @@
         target="_blank"
         rel="noreferrer"
         >Vue CLI</a
-      >. I'm keeping this here for the purposes of this demo app, because it contains a lot of useful documentation links.
+      >. I'm keeping this here for the purposes of this demo app, because it
+      contains a lot of useful documentation links.
     </h1>
     <img class="mx-auto" alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
