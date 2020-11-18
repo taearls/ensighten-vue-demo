@@ -20,10 +20,10 @@ To wrap things up in a more real-world example, I have a simple form, which when
 This form again uses a `computed` property to handle the disabled / enabled state of the `Send Email` button. It also makes use of [Vuelidate](https://vuelidate.js.org) to implement custom validations, including required fields and checking the email address against a regular expression.
 
 This app does NOT cover:
-- [Vue 3](https://v3.vuejs.org/) - once the Vue core team implements a migration build and the ecosystem catches up, this will be more viable to use in production. This was only released in September, so it isn't as battle tested as Vue 2 which has been in production since [2016](https://medium.com/the-vue-point/vue-2-0-is-here-ef1f26acf4b8).
-- [Nuxt](https://nuxtjs.org/) - this provides server side rendering. Demonstrating this would make more sense as a separate demo app, because it significantly changes the way the app will be structured and configured.
-- [Vuex](https://vuex.vuejs.org/) - this is a global state solution, similar to React's Redux library.
-- [TypeScript integration](https://vuejs.org/v2/guide/typescript.html) (this is much, much easier to achieve with Vue 3 since it's built with TS)
+- [Vue 3](https://v3.vuejs.org/) - Once the Vue core team implements an official migration build from Vue 2 to Vue 3 and the larger ecosystem catches up, this will be more viable to use in production. This was only released in [September 2020](https://github.com/vuejs/vue-next/releases/tag/v3.0.0?ref=madewithvuejs.com), so it isn't as battle tested as Vue 2 which has been in production since [2016](https://medium.com/the-vue-point/vue-2-0-is-here-ef1f26acf4b8).
+- [Nuxt](https://nuxtjs.org/) - This provides server side rendering. Demonstrating this would make more sense as a separate demo app, because it significantly changes the way the app will be structured and configured.
+- [Vuex](https://vuex.vuejs.org/) - This is a global state solution, similar to React's Redux library. This seemed pretty advanced to include for people who are new to Vue. For production apps, this can be incredibly useful for storing global information like account information and an authentication state.
+- [TypeScript integration](https://vuejs.org/v2/guide/typescript.html) - In Vue 2, this is notoriously difficult to implement because the codebase uses Facebook's Flow library for type annotations, which don't always map as expected to TypeScript. In short, this is much, much easier to achieve with Vue 3 because the codebase was completely rewritten in TypeScript.
 
 ## Project setup
 ```
