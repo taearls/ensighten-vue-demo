@@ -3,7 +3,7 @@
     <h1>
       This page is generated from the
       <a
-        class="text-blue-500 underline"
+        class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
         href="https://cli.vuejs.org"
         target="_blank"
         rel="noreferrer"

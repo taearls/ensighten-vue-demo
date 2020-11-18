@@ -55,7 +55,7 @@
             {{ food }}
           </li>
           <button
-            class="button mx-2"
+            class="button mx-2 focus:shadow-outline-light focus:outline-none"
             :key="'remove-food-' + index"
             @click="foodList.splice(index, 1)"
           >
@@ -69,7 +69,7 @@
       <h3 class="font-bold text-lg text-purple-600 my-4">v-model</h3>
       <pre>foodToAdd: "{{ foodToAdd }}"</pre>
       <input
-        class="block mx-auto my-2 p-2 focus:shadow-outline focus:outline-none border border-gray-800 rounded-md"
+        class="block mx-auto my-2 p-2 focus:shadow-outline-light focus:outline-none border border-gray-800 rounded-md"
         type="text"
         placeholder="Add a Food to the list!"
         v-model.trim="foodToAdd"
@@ -83,7 +83,7 @@
       </p>
       <pre>addFoodButtonDisabled: {{ addFoodButtonDisabled }}</pre>
       <button
-        class="button add-food-button"
+        class="button add-food-button focus:shadow-outline-light focus:outline-none"
         @click="addFood(foodToAdd)"
         :disabled="addFoodButtonDisabled"
       >
@@ -105,14 +105,14 @@
 
       <!-- you can also use v-for with a number range. it starts from 1 and includes the upper bound -->
       <label v-for="num in 4" :for="`radioOption${num}`" :key="`radioLabel${num}`">
-        <input :id="`radioOption${num}`" type="radio" name="radio-demo" :value="`Option ${num}`" v-model="selectedRadioInput" /> Option {{ num }}
+        <input class="focus:shadow-outline-light focus:outline-none" :id="`radioOption${num}`" type="radio" name="radio-demo" :value="`Option ${num}`" v-model="selectedRadioInput" /> Option {{ num }}
       </label>
     </div>
 
     <div class="flex flex-col my-4">
       <pre> selectedDropdownInput: {{ selectedDropdownInput || '""' }}</pre>
       <select
-        class="w-48 mx-auto my-2 px-2 py-1 border border-black rounded-md"
+        class="w-48 mx-auto my-2 px-2 py-1 border border-black rounded-md focus:shadow-outline-light focus:outline-none"
         v-model="selectedDropdownInput"
       >
         <option disabled value="">Please Select One</option>
@@ -147,16 +147,16 @@
     <pre>onBeforeDestroyed: {{ lifecycleListeners.onBeforeDestroyed }}</pre>
     <pre>onDestroyed: {{ lifecycleListeners.onDestroyed }}</pre>
 
-    <button class="button block mx-auto my-2" @click="isLifecycleComponentPresent = !isLifecycleComponentPresent">
+    <button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none" @click="isLifecycleComponentPresent = !isLifecycleComponentPresent">
       {{ isLifecycleComponentPresent ? "Hide Lifecycle Demo Component" : "Show Lifecycle Demo Component" }}
     </button>
 
     <!-- you can conditionally show a group of elements without adding additional html to the page by using a template tag -->
     <template v-if="isLifecycleComponentPresent">
-      <button class="button block mx-auto my-2" @click="isLifecycleComponentUpdated = true">
+      <button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none" @click="isLifecycleComponentUpdated = true">
         Update Lifecycle Demo Component
       </button>
-      <button class="button block mx-auto my-2" @click="resetLifecycleComponent">
+      <button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none" @click="resetLifecycleComponent">
         Reset Lifecycle Demo Component
       </button>
     </template>
@@ -166,10 +166,10 @@
     <!-- DEMO FORM -->
     <h2 class="font-bold text-xl text-purple-600 my-4">Demo Form</h2>
     <p class="p-2">
-      This is a demo form I stole from my <a class="text-blue-500 underline" href="https://www.tylerearls.com/contact" target="_blank" rel="noreferrer">personal website</a> that implements a more advanced set of validation
+      This is a demo form I stole from my <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://www.tylerearls.com/contact" target="_blank" rel="noreferrer">personal website</a> that implements a more advanced set of validation
       functions using
       <a
-        class="text-blue-500 underline"
+        class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none"
         href="https://vuelidate.js.org/"
         target="_blank"
         rel="noreferrer"
