@@ -55,9 +55,14 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Lints and checks for errors
 ```
 npm run lint
+```
+
+### Lints and fixes files
+```
+npm run lintfix
 ```
 
 ### Customize configuration
