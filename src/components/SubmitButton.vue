@@ -1,5 +1,5 @@
 <template>
   <button>
-    <slot>Default Content</slot>
+    <slot>Submit</slot>
   </button>
 </template>

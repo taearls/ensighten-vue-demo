@@ -201,15 +201,15 @@
 
     <pre>&lt;template&gt;</pre>
     <pre>&lt;button&gt;</pre>
-    <pre>&lt;slot&gt;Default Content&lt;/slot&gt;</pre>
+    <pre>&lt;slot&gt;Submit&lt;/slot&gt;</pre>
     <pre>&lt;/button&gt;</pre>
     <pre>&lt;/template&gt;</pre>
 
     <p class="p-2">Using slots, we can essentially pass HTML as a prop to a component. This is a unique Vue feature that's useful when we have reusable styles for a given component, but its content may change depending on where its used.</p>
-    <p class="p-2">This is a very trivial example for demonstration, where the first button renders default content, and the second accepts the <pre class="inline">Custom Content</pre> string and renders that in its slot instead.</p>
-    <p class="p-2">A good real-world use case for slots is for a blog, where you may have multiple slots (differentiated with a <pre class="inline">name</pre> property) for a header, a title, a footer, a thumbnail.</p>
+    <p class="p-2">This is a very trivial example for demonstration, where the first button renders default content, and the second accepts the <pre class="inline">Save Changes</pre> string and renders that in its slot instead.</p>
+    <p class="p-2">A good real-world use case for slots is for a blog, where you may have multiple slots (differentiated in each slot with a <pre class="inline">name</pre> attribute) for a header, a title, a footer, a thumbnail.</p>
     <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none"></submit-button>
-    <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none">Custom Content passed into slot</submit-button>
+    <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none">Save Changes</submit-button>
   </div>
 </template>
 
