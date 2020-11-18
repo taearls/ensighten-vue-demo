@@ -5,7 +5,9 @@
 The demo app is live on Netlify [here](https://ensighten-vue-demo.netlify.app).
 
 ## Overview
-This app demonstrates core concepts of Vue 2. With the code examples in the demo page, there are directives like `v-if`, `v-show`, `v-for`, and `v-model`. 
+This app demonstrates core concepts of Vue 2. To learn more about the differences between Vue 2 and AngularJS, please refer to the Vue documentation's [official guide](https://vuejs.org/v2/guide/comparison.html#AngularJS-Angular-1).
+
+With the code examples in the demo page, there are directives like `v-if`, `v-show`, `v-for`, and `v-model`. 
 
 In terms of `v-for` I demonstrate how you can add and remove items from a simple list of food items. When you add `nachos` to the food list, you'll get a fun picture of Nacho Libre that is triggered with a `watch` function.
 
