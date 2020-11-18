@@ -9,7 +9,7 @@
 
     <hr class="mx-auto my-8 w-2/3" />
 
-    <!-- VUE DIRECTIVES -->
+    <!-- VUE DIRECTIVES SECTION -->
     <h2 class="font-bold text-xl text-purple-600">Vue Directives</h2>
     <div class="my-4">
       <h3 class="font-bold text-lg text-purple-600 my-4">v-if</h3>
@@ -101,7 +101,7 @@
     </template>
 
     <div class="flex flex-col my-4">
-      <pre> selectedRadioInput: {{ selectedRadioInput || '""' }}</pre>
+      <pre>selectedRadioInput: {{ selectedRadioInput || '""' }}</pre>
 
       <!-- you can also use v-for with a number range. it starts from 1 and includes the upper bound -->
       <label v-for="num in 4" :for="`radioOption${num}`" :key="`radioLabel${num}`">
@@ -110,7 +110,7 @@
     </div>
 
     <div class="flex flex-col my-4">
-      <pre> selectedDropdownInput: {{ selectedDropdownInput || '""' }}</pre>
+      <pre>selectedDropdownInput: {{ selectedDropdownInput || '""' }}</pre>
       <select
         class="w-48 mx-auto my-2 px-2 py-1 border border-black rounded-md focus:shadow-outline-light focus:outline-none"
         v-model="selectedDropdownInput"
@@ -163,7 +163,7 @@
 
     <hr class="mx-auto my-8 w-2/3" />
 
-    <!-- DEMO FORM -->
+    <!-- DEMO FORM SECTION -->
     <h2 class="font-bold text-xl text-purple-600 my-4">Demo Form</h2>
     <p class="p-2">
       This is a demo form I stole from my <a class="text-blue-500 underline rounded-sm focus:shadow-outline-light focus:outline-none" href="https://www.tylerearls.com/contact" target="_blank" rel="noreferrer">personal website</a> that implements a more advanced set of validation
@@ -194,13 +194,31 @@
     <!-- receives payload as $event keyword from custom form-submitted event -->
     <demo-form @form-submitted="submittedFormBody = $event"/>
 
+    <!-- SLOT EXAMPLE SECTION -->
+    <h2 class="font-bold text-xl text-purple-600 my-4">Slot Demo</h2>
+
+    <p class="p-2">This demo is so simple I included a code snippet of the component I'm using:</p>
+
+    <pre>&lt;template&gt;</pre>
+    <pre>&lt;button&gt;</pre>
+    <pre>&lt;slot&gt;Default Content&lt;/slot&gt;</pre>
+    <pre>&lt;/button&gt;</pre>
+    <pre>&lt;/template&gt;</pre>
+
+    <p class="p-2">Using slots, we can essentially pass HTML as a prop to a component. This is a unique Vue feature that's useful when we have reusable styles for a given component, but its content may change depending on where its used.</p>
+    <p class="p-2">This is a very trivial example for demonstration, where the first button renders default content, and the second accepts the <pre class="inline">Custom Content</pre> string and renders that in its slot instead.</p>
+    <p class="p-2">A good real-world use case for slots is for a blog, where you may have multiple slots (differentiated with a <pre class="inline">name</pre> property) for a header, a title, a footer, a thumbnail.</p>
+    <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none"></submit-button>
+    <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none">Custom Content passed into slot</submit-button>
   </div>
 </template>
 
 <script>
+// @ is an alias for the src directory
 import InputToggle from "@/components/InputToggle";
 import DemoForm from "@/components/DemoForm";
 import LifecycleDemo from "@/components/LifecycleDemo";
+import SubmitButton from "@/components/SubmitButton";
 
 export default {
   data() {
@@ -231,6 +249,7 @@ export default {
     InputToggle,
     DemoForm,
     LifecycleDemo,
+    SubmitButton,
   },
   computed: {
     addFoodButtonDisabled() {
