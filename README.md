@@ -15,11 +15,11 @@ You can also use a modifier like `v-model.trim` to eliminate trailing and leadin
 
 I also have a lifecycle demo component, which makes use of custom events to update data properties when lifecycle hooks are fired. You can show, hide, update, and reset the state of the lifecycle component to see how the lifecycle properties are affected.
 
-To wrap things up in a more real-world example, I have a simple form, which when you submit it, will output the data onto the page. One notable feature is that it implements a `@submit.prevent` modifier, which is the equivalent of `event.preventDefault()` to prevent the browser from refreshing. 
+To wrap things up with a more real-world example, I have a simple form, which, when you submit it, will output the form data onto the page. In production you can imagine that instead a post request would use this data as a payload. One notable Vue feature is that it implements a `@submit.prevent` modifier, which is the equivalent of `event.preventDefault()` to prevent the browser from refreshing.
 
-This form again uses a `computed` property to handle the disabled / enabled state of the `Send Email` button. It also makes use of [Vuelidate](https://vuelidate.js.org) to implement custom validations, including required fields and checking the email address against a regular expression.
+This form again uses a `computed` property to handle the disabled / enabled state of the `Send Email` button. It also makes use of [Vuelidate](https://vuelidate.js.org) to implement custom validations, including required fields and checking the email address against a regular expression. With this validation logic, I'm able to manage the disabled state of the submit button and show error messages when they're appropriate.
 
-This app does NOT cover:
+This demo app does NOT cover:
 - [Vue 3](https://v3.vuejs.org/) - Once the Vue core team implements an official migration build from Vue 2 to Vue 3 and the larger ecosystem catches up, this will be more viable to use in production. This was only released in [September 2020](https://github.com/vuejs/vue-next/releases/tag/v3.0.0?ref=madewithvuejs.com), so it isn't as battle tested as Vue 2 which has been in production since [2016](https://medium.com/the-vue-point/vue-2-0-is-here-ef1f26acf4b8).
 - [Nuxt](https://nuxtjs.org/) - This provides server side rendering. Demonstrating this would make more sense as a separate demo app, because it significantly changes the way the app will be structured and configured.
 - [Vuex](https://vuex.vuejs.org/) - This is a global state solution, similar to React's Redux library. This seemed pretty advanced to include for people who are new to Vue. For production apps, this can be incredibly useful for storing global information like account information and an authentication state.
