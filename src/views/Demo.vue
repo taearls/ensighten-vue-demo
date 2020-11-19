@@ -208,8 +208,11 @@
     <p class="p-2">Using slots, we can essentially pass HTML as a prop to a child component. This is a unique Vue feature that's useful when we have reusable styles for a given component, but its content may change depending on the context where its used.</p>
     <p class="p-2">This is a very trivial example for demonstration, where the first button renders default content, and the second accepts the <pre class="inline">Save Changes</pre> string and renders that in its slot instead.</p>
     <p class="p-2">A good real-world use case for slots is for a blog, where you may have multiple slots (differentiated in each slot with a <pre class="inline">name</pre> attribute) for a header, a title, a footer, a thumbnail.</p>
+
     <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none"></submit-button>
-    <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none">Save Changes</submit-button>
+    <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none">
+      Save Changes
+    </submit-button>
 
     <!-- SCOPED SLOT EXAMPLE SECTION -->
     <h2 class="font-bold text-xl text-purple-600 my-4">Scoped Slot Demo</h2>
@@ -230,6 +233,7 @@
     <scoped-slot-demo v-slot:default="{ user }">
       I can access {{ user.lastName }} from the parent.
     </scoped-slot-demo>
+    {{ someValue }}
   </div>
 </template>
 
@@ -264,6 +268,7 @@ export default {
         onBeforeDestroyed: false,
         onDestroyed: false,
       },
+      someValue: "",
       slotCodeSnippet: "<slot>Submit</slot>",
       scopedSlotCodeSnippet: "<slot :user=\"user\">{{user.firstName}}</slot>",
     };
