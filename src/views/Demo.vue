@@ -93,7 +93,7 @@
 
     <!-- WATCH EXAMPLE -->
     <p class="my-2">If you add <pre class="inline">nachos</pre> to the <pre class="inline">foodList</pre>, a watcher will pick up on this and trigger a side effect.</p>
-    <p class="my-2"><strong>NOTE:</strong> This example grabs an image that's committed in the demo projected. A less contrived use case for this might trigger an API call to request a payload in response to a user event.</p>
+    <p class="my-2"><strong>NOTE:</strong> This example grabs an image that's committed in the demo app's repository. A less contrived use case for this might be to trigger an API call to request a payload in response to a user event. Watchers are great to trigger side effects and asynchronous actions.</p>
 
     <template v-if="imgSrc !== ''">
       <p class="font-bold uppercase">nachoooooo!</p>
@@ -205,7 +205,7 @@
     <pre>&lt;/button&gt;</pre>
     <pre>&lt;/template&gt;</pre>
 
-    <p class="p-2">Using slots, we can essentially pass HTML as a prop to a component. This is a unique Vue feature that's useful when we have reusable styles for a given component, but its content may change depending on where its used.</p>
+    <p class="p-2">Using slots, we can essentially pass HTML as a prop to a child component. This is a unique Vue feature that's useful when we have reusable styles for a given component, but its content may change depending on the context where its used.</p>
     <p class="p-2">This is a very trivial example for demonstration, where the first button renders default content, and the second accepts the <pre class="inline">Save Changes</pre> string and renders that in its slot instead.</p>
     <p class="p-2">A good real-world use case for slots is for a blog, where you may have multiple slots (differentiated in each slot with a <pre class="inline">name</pre> attribute) for a header, a title, a footer, a thumbnail.</p>
     <submit-button class="button block mx-auto my-2 focus:shadow-outline-light focus:outline-none"></submit-button>
@@ -226,6 +226,7 @@
 
     <p class="p-2">In the second example, I'm rendering different content by accessing the child component's <pre class="inline">user.lastName</pre> property from the parent component.</p>
 
+    <!-- we're able to destructure this property because it's just normal JS within the quotes -->
     <scoped-slot-demo v-slot:default="{ user }">
       I can access {{ user.lastName }} from the parent.
     </scoped-slot-demo>
