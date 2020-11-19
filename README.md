@@ -28,8 +28,8 @@ I also added some trivial demonstrations of slots and scoped slots. These are pr
 ## What This Demo App Does NOT Cover
 
 - [Vue 3](https://v3.vuejs.org/) - Once the Vue core team implements an official migration build from Vue 2 to Vue 3 and the larger ecosystem catches up, this will be more viable to use in production. This was only released in [September 2020](https://github.com/vuejs/vue-next/releases/tag/v3.0.0?ref=madewithvuejs.com), so it isn't as battle tested as Vue 2 which has been in production since [2016](https://medium.com/the-vue-point/vue-2-0-is-here-ef1f26acf4b8).
-- [Nuxt](https://nuxtjs.org/) - This provides server side rendering. Demonstrating this would make more sense as a separate demo app, because it significantly changes the way the app will be structured and configured.
-- [Vuex](https://vuex.vuejs.org/) - This is a global state solution, similar to React's Redux library. This seemed pretty advanced to include for people who are new to Vue. For production apps, this can be incredibly useful for storing global information like account information and an authentication state.
+- [Nuxt](https://nuxtjs.org) - This provides server side rendering. Demonstrating this would make more sense as a separate demo app, because it significantly changes the way the app will be structured and configured.
+- [Vuex](https://vuex.vuejs.org) - This is a global state solution, similar to React's Redux library. This seemed pretty advanced to include for people who are new to Vue. For production apps, this can be incredibly useful for storing global information like account information and an authentication state.
 - [TypeScript integration](https://vuejs.org/v2/guide/typescript.html) - In Vue 2, this is notoriously difficult to implement because the codebase uses Facebook's Flow library for type annotations, which don't always map as expected to TypeScript. In short, this is much, much easier to achieve with Vue 3 because the codebase was completely rewritten in TypeScript.
 
 ## How the Demo App is Built
@@ -55,7 +55,7 @@ npm run serve
 npm run build
 ```
 
-### Lints and checks for errors
+### Lints and checks for errors (runs on pre-commit)
 ```
 npm run lint
 ```
@@ -66,4 +66,4 @@ npm run lintfix
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://cli.vuejs.org/config).
